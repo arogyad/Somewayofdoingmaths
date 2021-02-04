@@ -19,7 +19,13 @@ class Math():
 
     def just_maths(self,this_list):
         expression = ''.join(i for i in this_list)
-        return eval(expression)
+        try:
+            return eval(expression)
+        except:
+            if '+' in this_list:
+                return this_list[-2]
+            elif '-' in this_list:
+                return this_list[-2]
 
     def sqrt(self, this_list):
         list_copy = this_list.copy()

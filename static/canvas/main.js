@@ -61,32 +61,26 @@ function stop(event){
   if (event.type != 'mouseend'){
       var img = image_create();
       var data = img;
-      console.log(data)
       $.ajax({
-        url:'/',
+        url:'/canvas',
         type:"POST",
         dataType:"JSON",
         contentType:"application/json",
         data:data,
         success:function(x){
           $(answer).replaceWith(x)
+          $(prediction).replaceWith(x)
         },
       });
   }
 }
-function download(content, fileName, contentType) {
-    var a = document.createElement("a");
-    var file = new Blob([content], {type: contentType});
-    a.href = URL.createObjectURL(file);
-    a.download = fileName;
-    a.click();
-}
+
 function clear_canvas(){
   context.fillStyle = "white";
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillRect(0, 0, canvas.width, canvas.height);
   $.ajax({
-    url:'/',
+    url:'/canvas',
     type:'POST',
     dataType: 'JSON',
     contentType: 'application/json',

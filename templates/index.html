@@ -1,0 +1,31 @@
+{% extends "navbar.html" %}
+{% block title %}Canvas{% endblock %}
+{% set active_page = 'project' %}
+
+{% block content %}
+<link rel="stylesheet" href="static/canvas/main.css">
+<div class="title_text">
+  <h2>Handwriting Equation Solver:</h2>
+</div>
+<div class="field">
+    <canvas id="canvas"></canvas>
+    <div class="tools">
+        <i class='bx bxs-eraser bx-sm' onclick="clear_canvas()"></i>
+        <span class="show_text">This will erase the entire board.</span>
+    </div>
+</div>
+<div class="col-lg-8 pt-4 pt-lg-0 content">
+  <p class="font-italic">
+    Try drawing some mathematical operations on the canvas above. This project can be found on Github at <a href="https://github.com/arogydhl/HandwrittenEquationSolverWebApp" target="_blank"> this link </a>.
+    The complete implementation blog can be found <a href="https://arogydhl.github.io" target="_blank"> here. </a>
+</div>
+<div id="prediction">
+  <span class="font-italic"> This seems like </span>
+  {{ prediction }}
+</div>
+<div id="answer">
+  <span class="font-italic"> I think the answer is </span>
+  {{ answer }}
+</div>
+<script src="static/canvas/main.js"></script>
+{% endblock %}

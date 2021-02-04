@@ -1,0 +1,40 @@
+<div id="answer">
+  <span class="font-italic"> I think the answer is </span>
+  {{ answer }}
+</div>
+<div id="prediction">
+  <span class="font-italic"> This seems like </span>
+  {{ prediction }}
+</div>
+<div class="form">
+  <label for="high">High:</label>
+  <input type="text" name="high" class="value" ></input>
+  <label for="low">Low:</label>
+  <input type="text"  name="low" class="value"></input>
+</div>
+ {% if int %}
+  <script type="text/javascript">
+    $('.form').css({opacity: 0, visibility: "visible"}).animate({opacity: 1.0}, 200);
+    jQuery(document).ready(function($) {
+    let total = [];
+        $value = $('.value');
+    $value.on('input', function(e) {
+        $value.each(function(index, elem) {
+            if(!Number.isNaN(parseInt(this.value, 10)))
+                total.push(parseInt(this.value, 10));
+        });
+        high_low = [... new Set(total)]
+        console.log(high_low);
+        $.ajax({
+          url:'/high_low',
+          type:"POST",
+          dataType:"json",
+          contentType:"application/json",
+          data:JSON.stringify(high_low),
+        });
+        total = []
+    });
+  });
+
+  </script>
+{% endif %}
