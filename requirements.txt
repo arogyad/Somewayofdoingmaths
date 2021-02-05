@@ -39,8 +39,7 @@ spacy-legacy==3.0.1
 srsly==2.4.0
 thinc==8.0.1
 threadpoolctl==2.1.0
-torch==1.7.1
-torchvision==0.8.2
+torch==1.7.1+cpu torchvision==0.8.2+cpu torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 tqdm==4.56.0
 typer==0.3.2
 typing-extensions==3.7.4.3
