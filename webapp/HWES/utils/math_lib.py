@@ -23,9 +23,15 @@ class Math():
             return eval(expression)
         except:
             if '+' in this_list:
-                return this_list[-2]
+                try:
+                    return this_list[-2]
+                except:
+                    return this_list[-1]
             elif '-' in this_list:
-                return this_list[-2]
+                try:
+                    return this_list[-2]
+                except:
+                    return this_list[-1]
 
     def sqrt(self, this_list):
         list_copy = this_list.copy()

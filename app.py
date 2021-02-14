@@ -29,6 +29,7 @@ def canvas():
             int = False
         return jsonify('', render_template('canvas_jen.html',answer = answer, prediction=prediction[0], int=int))
     else:
+        canvass.clear()
         return render_template('canvas.html')
 @app.route('/high_low', methods=['POST'])
 def high_low():
