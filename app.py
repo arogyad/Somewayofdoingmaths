@@ -3,7 +3,6 @@ from webapp.HWES.canvas_process import Canvas
 import re
 
 app = Flask(__name__)
-canvass = Canvas()
 
 @app.route("/")
 def home():
@@ -12,6 +11,7 @@ def home():
 
 @app.route("/canvas", methods=['POST','GET'])
 def canvas():
+    canvass = Canvas()
     file = request.data
     string = str(file)
     if 'True' in string:
